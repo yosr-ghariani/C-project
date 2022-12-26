@@ -1,1 +1,19 @@
-
+void delete_p(int id){
+    produit ptr;
+    //open file
+    FILE *fptr;
+    fptr = fopen ("products.txt", "w");
+    if (fptr == NULL)
+    {
+        fprintf(stderr, "\nError opened file\n");
+        exit (1);
+    } 
+    //recherche
+    while((p=fgets(p,sizeof(struct produit),fptr)!=NULL){
+        ptr=&p;
+        if(p.id==id){
+            free(ptr);
+        }
+    }
+    fclose (fptr);
+}
