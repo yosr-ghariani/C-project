@@ -211,7 +211,7 @@ void afficher_description(int id)
 
 //SEARCH FUNCTION
 
-void afficher_description(int id)
+void recherche(int id)
 {
 
     FILE *infile;
@@ -228,7 +228,7 @@ void afficher_description(int id)
 
     while(fread(&p, sizeof(struct produit), 1, infile)){
         if(p.id==id){
-        printf(" Description: %s \n",p.desc);}
+        printf(" id:%d \n name: %s \n description: %s \n quantité:%d \n price:%f \n",p.id,p.name,p.desc,p.quant,p.price);}
         }
     printf("there is no product with this id!");
 
@@ -237,6 +237,5 @@ void afficher_description(int id)
     fclose (infile);
 
 }
-
 
 
