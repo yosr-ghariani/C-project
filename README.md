@@ -3,13 +3,15 @@ in this project, Azza Soussi, Mouadh Fraj and I (Yosr Ghariani) have teamed up t
 
 ● add a product.
 
-● shows the description of a product.
+● show the description of a product.
 
-● deletes a product.
+● delete a product.
 
-● updates a product.
+● update a product.
 
 ● search for a product in the stock.
+
+
 
 
 
