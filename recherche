@@ -1,1 +1,26 @@
+void recherche(int id)
+{
 
+    FILE *infile;
+    struct produit p;
+
+
+    infile = fopen ("products.txt", "r");
+    if (infile == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        exit (1);
+    }
+
+
+    while(fread(&p, sizeof(struct produit), 1, infile)){
+        if(p.id==id){
+        printf(" id:%d \n name: %s \n description: %s \n quantité:%d \n price:%f \n",p.id,p.name,p.desc,p.quant,p.price);}
+        }
+    printf("there is no product with this id!");
+
+
+
+    fclose (infile);
+
+}
