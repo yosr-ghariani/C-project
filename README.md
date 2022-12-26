@@ -28,4 +28,5 @@ in this project, Azza Soussi, Mouadh Fraj and I (Yosr Ghariani) have teamed up t
 
 
 Here's a preview of the homepage:
-![2022-12-26 11_59_57-](https://user-images.githubusercontent.com/114835225/209541690-4368f12b-5979-4c45-8532-239ab5327f74.png)
+
+![2022-12-26 12_53_39-](https://user-images.githubusercontent.com/114835225/209546077-97ac5ffe-00d4-422d-a175-954fefdb67ee.png)
