@@ -1,4 +1,8 @@
 STOCK MANAGEMENT IN C:
+
+
+
+
 in this project, Azza Soussi, Mouadh Fraj and I (Yosr Ghariani) have teamed up to design a stock management site in CMD that is able to:
 
 ● add a product.
