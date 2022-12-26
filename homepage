@@ -1,7 +1,18 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include<string.h>
-#include<time.h>
+
+struct produit 
+{ 
+ int id ; 
+ char name[20];
+ char desc[200]; 
+ int quant ; 
+ float price ;
+};
+typedef struct produit;
+
+
 
 int main(){
 	int choice;
@@ -12,29 +23,37 @@ int main(){
 	printf("\n1. add a product") ; 
 	printf("\n2. update a product") ; 
 	printf("\n3. delete a product ") ; 
-	printf("\n4. see the list of products available in stock") ; 
+	printf("\n4. see the description of a product");
 	printf("\n5. search for a product in the stock") ; 
-	printf("\n6. see history") ; 
 	printf("\n7. Quit") ; 
 	printf("\n         Please enter your choice : ") ; 
 	scanf("%d",&choice) ; 
 		system("cls") ; 
+		
 	switch (choice) 
-	 { case 1 : ajout() ; 
+	 { case 1 : ajout() ;
 	         break ; 
-	    case 2 :  ; 
+	    case 2 : printf("id of the product: ");
+	    scanf("%d",id);
+		modifier(); ; 
 	     	break ; 
-	    case 3 : modifier(); 
+	    case 3 :printf("id of the product: ");
+	    scanf("%d",id);
+		delete_p(id);
 	        break ; 
 	    case 4:  ; 
 	     	break ; 
-	    case 5 : ; 
-	         break  ; 
-	    case 6 : ; 
-	         break ; 
+	    case 5 :printf("id of the product: ");
+	    scanf("%d",id);
+		 recherche(id);
+	        break  ; 
 	 }
 	}	while (choice!=7) ;
-
-
+	
+if(choice==7){
+	return 0;
+}
 return 0;
 }
+
+
