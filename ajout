@@ -1,1 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+struct produit 
+{ 
+ int id ; 
+ char name[20];
+ char desc[200]; 
+ int quant ; 
+ float price ;
+};
+typedef struct produit;
+int ajout(){
+    //open file
+    FILE *fptr;
+    fptr = fopen ("products.txt", "w");
+    if (fptr == NULL)
+    {
+        fprintf(stderr, "\nError opened file\n");
+        exit (1);
+    } 
+    //enter values of product
+    printf("Enter the id of the product");
+    scanf("%s",&id);
+    printf("Enter the name of the product");
+    scanf("%s",&name);
+    printf("Enter the description of the product");
+    scanf("%s",&desc);
+    printf("Enter the quantity of the product");
+    scanf("%d",&quant);
+
+    //assign the values into the product
+    struct produit p={id,name,desc,quant};
+
+    //write the product in the file
+    fwrite (&input, sizeof(struct person), 1, fptr);
+
+    if(fwrite != 0)
+        printf("contents to file written successfully !\n");
+    else
+        printf("error writing file !\n");
+    fclose (fptr);
+}
+int main(){
+    ajout()
+    return 0;
+}
