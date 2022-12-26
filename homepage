@@ -79,16 +79,16 @@ int ajout(){
     } 
     //enter values of product
     printf("Enter the id of the product");
-    scanf("%s",&id);
+    scanf("%s",&p.id);
     printf("Enter the name of the product");
-    scanf("%s",&name);
+    scanf("%s",&p.name);
     printf("Enter the description of the product");
-    scanf("%s",&desc);
+    scanf("%s",&p.desc);
     printf("Enter the quantity of the product");
-    scanf("%d",&quant);
+    scanf("%d",&p.quant);
 
     //assign the values into the product
-    struct produit p={id,name,desc,quant};
+    struct produit p={p.id,p.name,p.desc,p.quant};
 
     //write the product in the file
     fwrite (&input, sizeof(struct person), 1, fptr);
