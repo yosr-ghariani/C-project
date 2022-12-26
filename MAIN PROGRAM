@@ -20,8 +20,8 @@ int main(){
 	int choice;
 	struct produit p;
 	
-	do {
-	printf("\t\t\t\t\t   **********************************************\n\t\t\t\t\t\t\t*STOCK MANAGEMENT HOMEPAGE*\n\t\t\t\t\t   **********************************************\n\n");
+	do {                                                                                                                          
+	printf("\t\t\t\t\t    ______________________________________________\n\t\t\t\t\t\t\t-STOCK MANAGEMENT HOMEPAGE-\n\t\t\t\t\t   ______________________________________________\n\n");
 	printf("\n Would you like to : ");
 	printf("\n1. add a product") ; 
 	printf("\n2. update a product") ; 
