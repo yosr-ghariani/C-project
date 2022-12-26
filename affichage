@@ -1,1 +1,26 @@
+void afficher_description(int id)
+{
 
+    FILE *infile;
+    struct produit p;
+
+
+    infile = fopen ("products.txt", "r");
+    if (infile == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        exit (1);
+    }
+
+
+    while(fread(&p, sizeof(struct produit), 1, infile)){
+        if(p.id==id){
+        printf(" Description: %s \n",p.desc);}
+        }
+    printf("there is no product with this id!");
+
+
+
+    fclose (infile);
+
+}
