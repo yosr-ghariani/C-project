@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include<string.h>
+#include<dos.h>
 
 struct produit 
 { 
@@ -14,8 +15,10 @@ typedef struct produit;
 
 
 
+
 int main(){
 	int choice;
+	struct produit p;
 	
 	do {
 	printf("\t\t\t\t\t   **********************************************\n\t\t\t\t\t\t\t*STOCK MANAGEMENT HOMEPAGE*\n\t\t\t\t\t   **********************************************\n\n");
@@ -31,21 +34,23 @@ int main(){
 		system("cls") ; 
 		
 	switch (choice) 
-	 { case 1 : ajout() ;
+	 { case 1 : ajout();
 	         break ; 
 	    case 2 : printf("id of the product: ");
-	    scanf("%d",id);
-		modifier(); ; 
+	    scanf("%d",p.id);
+		modifier(p.id); 
 	     	break ; 
 	    case 3 :printf("id of the product: ");
-	    scanf("%d",id);
-		delete_p(id);
+	    scanf("%d",p.id);
+		delete_p(p.id);
 	        break ; 
-	    case 4:  ; 
+	    case 4:printf("id of the product: ");
+	    scanf("%d",p.id);
+		 afficher_description(p.id) ; 
 	     	break ; 
 	    case 5 :printf("id of the product: ");
-	    scanf("%d",id);
-		 recherche(id);
+	    scanf("%d",p.id);
+		 recherche(p.id);
 	        break  ; 
 	 }
 	}	while (choice!=7) ;
@@ -55,5 +60,185 @@ if(choice==7){
 }
 return 0;
 }
+
+
+
+
+
+
+//ADD FUNCTION
+
+int ajout(){
+    //open file
+    FILE *fptr;
+    fptr = fopen ("products.txt", "w");
+    if (fptr == NULL)
+    {
+        fprintf(stderr, "\nError opened file\n");
+        exit (1);
+    } 
+    //enter values of product
+    printf("Enter the id of the product");
+    scanf("%s",&id);
+    printf("Enter the name of the product");
+    scanf("%s",&name);
+    printf("Enter the description of the product");
+    scanf("%s",&desc);
+    printf("Enter the quantity of the product");
+    scanf("%d",&quant);
+
+    //assign the values into the product
+    struct produit p={id,name,desc,quant};
+
+    //write the product in the file
+    fwrite (&input, sizeof(struct person), 1, fptr);
+
+    if(fwrite != 0)
+        printf("contents to file written successfully !\n");
+    else
+        printf("error writing file !\n");
+    fclose (fptr);
+}
+int main(){
+    ajout()
+    return 0;
+}
+
+
+
+
+//UPDATE FUNCTION
+
+void modifier(int id)
+{
+    int x;
+    FILE *infile;
+    struct produit p;
+
+
+    infile = fopen ("products.txt", "r");
+    if (infile == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        exit (1);
+    }
+
+
+    while(fread(&p, sizeof(struct produit), 1, infile)){
+        if(p.id==id){
+        printf("what are you going to change?\n press 1 for name \n press 2 for description \n press 3 for quantity \n press 4 for price\n ");
+        scanf(" %d",&x);
+        switch(x){
+        case 1:
+            printf("give me a new name");
+            scanf(" %s",&p.name);
+            break;
+        case 2:
+            printf("write your new description ");
+            scanf(" %s",&p.desc);
+            break;
+        case 3:
+            printf("write your new quantity");
+            scanf(" %d",&p.quant);
+            break;
+        case 4:
+            printf("write your new price");
+            scanf(" %f",&p.price);
+            break;
+            }}}
+    printf("there is no product with this id!");
+
+
+
+    fclose (infile);
+
+}
+
+
+
+//DELETE FUNCTION
+
+void delete_p(int id){
+    produit ptr;
+    //open file
+    FILE *fptr;
+    fptr = fopen ("products.txt", "w");
+    if (fptr == NULL)
+    {
+        fprintf(stderr, "\nError opened file\n");
+        exit (1);
+    } 
+    //recherche
+    while((p=fgets(p,sizeof(struct produit),fptr)!=NULL){
+        ptr=&p;
+        if(p.id==id){
+            free(ptr);
+        }
+    }
+    fclose (fptr);
+}
+
+
+
+//DESCRIPTION FUNCTION
+
+void afficher_description(int id)
+{
+
+    FILE *infile;
+    struct produit p;
+
+
+    infile = fopen ("products.txt", "r");
+    if (infile == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        exit (1);
+    }
+
+
+    while(fread(&p, sizeof(struct produit), 1, infile)){
+        if(p.id==id){
+        printf(" Description: %s \n",p.desc);}
+        }
+    printf("there is no product with this id!");
+
+
+
+    fclose (infile);
+
+}
+
+
+
+//SEARCH FUNCTION
+
+void afficher_description(int id)
+{
+
+    FILE *infile;
+    struct produit p;
+
+
+    infile = fopen ("products.txt", "r");
+    if (infile == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        exit (1);
+    }
+
+
+    while(fread(&p, sizeof(struct produit), 1, infile)){
+        if(p.id==id){
+        printf(" Description: %s \n",p.desc);}
+        }
+    printf("there is no product with this id!");
+
+
+
+    fclose (infile);
+
+}
+
 
 
