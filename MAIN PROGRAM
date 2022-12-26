@@ -68,7 +68,9 @@ return 0;
 
 //ADD FUNCTION
 
+
 int ajout(){
+     struct produit;
     //open file
     FILE *fptr;
     fptr = fopen ("products.txt", "w");
@@ -79,16 +81,16 @@ int ajout(){
     } 
     //enter values of product
     printf("Enter the id of the product");
-    scanf("%s",&p.id);
+    scanf("%s",&id);
     printf("Enter the name of the product");
-    scanf("%s",&p.name);
+    scanf("%s",&name);
     printf("Enter the description of the product");
-    scanf("%s",&p.desc);
+    scanf("%s",&desc);
     printf("Enter the quantity of the product");
-    scanf("%d",&p.quant);
+    scanf("%d",&quant);
 
     //assign the values into the product
-    struct produit p={p.id,p.name,p.desc,p.quant};
+    struct produit p={id,name,desc,quant};
 
     //write the product in the file
     fwrite (&input, sizeof(struct person), 1, fptr);
@@ -98,10 +100,6 @@ int ajout(){
     else
         printf("error writing file !\n");
     fclose (fptr);
-}
-int main(){
-    ajout()
-    return 0;
 }
 
 
